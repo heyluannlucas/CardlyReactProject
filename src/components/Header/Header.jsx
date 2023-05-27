@@ -1,6 +1,6 @@
 import React from 'react';
 import './Header.css';
-import logo from '../../assets/images/Cardly logo.png';
+import logo from '../../assets/images/icon.svg';
 import userIcon from '../../assets/images/666201.png';
 import { motion } from 'framer-motion';
 import { Container, Row } from 'reactstrap';

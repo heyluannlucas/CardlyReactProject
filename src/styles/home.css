@@ -1,0 +1,59 @@
+
+
+.home_section{
+    /* Rectangle 139 */
+
+background: linear-gradient(293.57deg, #E340B6 38.6%, #EA8A8A 82.32%);
+border-radius: 2px;
+
+
+}
+
+.home_section{
+    /* Rectangle 139 */
+
+color: var(--primary-color) ;
+border-radius: 2px;
+
+
+}
+
+.slogan {
+  color: #EFF5ED;
+  font-size: 2.5rem;
+  margin: 100px 20px;
+}
+
+
+/* cardsv2 2 */
+
+.home_img {
+
+  transform: rotate(-15deg);
+}
+
+.shop_button {
+  border: none;
+  outline: none;
+  padding: 8px 20px;
+  border-radius: 5px;
+  background: var(--primary-color);
+  color: #EFF5ED;
+  cursor: pointer;
+  font-size: 1rem;
+  position: relative;
+  top: -60px;
+  left: 120px;
+}
+
+.home_subtitle{
+  color: #EFF5ED;
+}
+
+.shop_button a:hover{
+    color: #fff;
+}
+
+.home_content {
+  padding-top: 45px;
+}

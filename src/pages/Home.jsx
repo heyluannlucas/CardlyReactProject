@@ -2,9 +2,15 @@ import React from 'react';
 import Helmet from '../components/Helmet/Helmet';
 import { Row, Col, Container } from 'reactstrap';
 import homeImage from '../assets/images/giftcards.png';
+import '../styles/home.css'
+import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
+
+import Services from '../services/Services';
+import ProductsList from '../components/UI/ProductsList';
+
 
 const Home = () => {
-  const year = new Date().getFullYear();
   
   return (
     <Helmet title={'Home'}>
@@ -13,10 +19,11 @@ const Home = () => {
           <Row>
             <Col lg='6' md='6'>
               <div className="home_content">
-                <p className='home_subtitle'>{year}</p>
-                <h2>Gift Cards: The Perfect Present, All in One Card!</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                <button className='buy_btn'>BUY</button>
+                <h2 className='slogan'>The power of gifting <br />  
+                  emotions in the form of   <br />
+                  giftcards</h2>
+                <motion.button whileTap={{scale:1.2}} 
+                className='shop_button'><Link to='/shop'>SHOP</Link></motion.button>
               </div>
             </Col>
             <Col lg='6' md='6'>
@@ -26,9 +33,23 @@ const Home = () => {
             </Col>
           </Row>
         </Container>
+      
+      </section>
+      <Services/>
+      <section className='trending_products'>
+        <Container>
+          <Row>
+            <Col  lg='12' className='text-center'>
+              <h2 className='section_title'>Trending Products</h2>
+            </Col>
+            <ProductsList/>
+          </Row>
+        </Container>
+
       </section>
     </Helmet>
   );
 };
 
 export default Home;
+

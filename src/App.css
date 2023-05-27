@@ -63,3 +63,6 @@ section {
   padding: 60px 8px;
 }
 
+.section_title{
+  color: var(--primary-color);
+}
