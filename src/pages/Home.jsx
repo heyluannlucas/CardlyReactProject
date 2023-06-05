@@ -1,17 +1,33 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
+
 import Helmet from '../components/Helmet/Helmet';
 import { Row, Col, Container } from 'reactstrap';
 import homeImage from '../assets/images/giftcards.png';
+import Services from '../services/Services'
+
 import '../styles/home.css'
+
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import products from '../assets/data/products'
 
-import Services from '../services/Services';
+
 import ProductsList from '../components/UI/ProductsList';
 
 
 const Home = () => {
+
+ 
+    const [data, setData] = useState([]);
   
+    useEffect(() => {
+      const filteredProducts = products.filter(
+        (item) => item.category === 'teste'
+        );
+
+      setData(filteredProducts)
+    }, []);
+
   return (
     <Helmet title={'Home'}>
       <section className='home_section'>
@@ -26,10 +42,8 @@ const Home = () => {
                 className='shop_button'><Link to='/shop'>SHOP</Link></motion.button>
               </div>
             </Col>
-            <Col lg='6' md='6'>
-              <div className='home_img'>
-                <img src={homeImage} alt='' />
-              </div>
+            <Col lg='6' md='6'>     
+                <img className='home_img' src={homeImage} alt='' />
             </Col>
           </Row>
         </Container>
@@ -40,9 +54,9 @@ const Home = () => {
         <Container>
           <Row>
             <Col  lg='12' className='text-center'>
-              <h2 className='section_title'>Trending Products</h2>
+              <h2 className='section_title'> </h2>
             </Col>
-            <ProductsList/>
+            <ProductsList data={data}/>
           </Row>
         </Container>
 

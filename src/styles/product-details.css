@@ -1,0 +1,113 @@
+.add_button{
+    border: none;
+    outline: none;
+    padding: 8px 20px;
+    border-radius: 5px;
+    background: var(--primary-color);
+    color: #EFF5ED;
+    cursor: pointer;
+    font-size: 1rem;
+    position: relative;
+    margin-top: 20px;
+}
+
+.product_details{
+    margin-top: 100px;
+}
+
+.product_details h2{
+    font-size: 1.6rem;
+    margin-bottom: 10px;
+}
+
+.price{
+    font-size: 2rem;
+    font-weight: 500;
+}
+
+.product_rating{
+    color: coral;
+}
+
+.product_rating p span{
+    color: coral;
+}
+
+.active__tab{
+    font-weight: 600px;
+}
+
+.tab_wrapper {
+    color: var(--primary-color);
+    font-weight: 500;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.tab_content p {
+    line-height: 30px;
+}
+
+.review_wrapper{
+    color: coral;
+    font-weight: 600;
+}
+
+.review_wrapper ul li p{
+   margin-top: 10px;
+}
+.review_form{
+    width: 70%;
+    margin: auto;
+    margin-top: 50px;
+}
+
+.review_form h4 {
+    color: black;
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    font-weight: 600;
+}
+
+.mb-4 h6{
+    color: black;
+}
+
+.form_group input, .form_group textarea{
+    width: 100%;
+    border: 1px solid var(--primary-color);
+    border-radius: 5px;
+    padding:8px 20px;
+}
+
+
+.form_group input:focus, .form_group textarea:focus{
+    outline: none;
+}
+
+.form_group_review{
+    outline: none;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.form_group_review span{
+  display: flex;
+  align-items: center;
+  column-gap: 5px;
+  color: coral;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+
+.form_group{
+    margin-bottom: 30px;
+}
+
+.related_title{
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-top: 30px;
+}
+

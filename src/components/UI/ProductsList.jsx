@@ -3,13 +3,16 @@
 import React from 'react'
 import ProductCard from './ProductCard'
 
-const ProductsList = () => {
-  return (<>
-    <ProductCard/>
-    <ProductCard/>
-    <ProductCard/>
-    <ProductCard/>
-  </>);
+const ProductsList = ({ data }) => {
+  return (
+    <>
+      {
+        data.map((item, index) => (
+          <ProductCard item={item} key={index} />
+        ))
+      }
+    </>
+  );
 };
 
 export default ProductsList

@@ -1,7 +1,7 @@
 
 
-.home_section{
-    /* Rectangle 139 */
+.home_section {
+   
 
 background: linear-gradient(293.57deg, #E340B6 38.6%, #EA8A8A 82.32%);
 border-radius: 2px;
@@ -9,13 +9,10 @@ border-radius: 2px;
 
 }
 
-.home_section{
-    /* Rectangle 139 */
 
+.home_section{
 color: var(--primary-color) ;
 border-radius: 2px;
-
-
 }
 
 .slogan {
@@ -25,11 +22,11 @@ border-radius: 2px;
 }
 
 
-/* cardsv2 2 */
 
 .home_img {
 
   transform: rotate(-15deg);
+  width: 100%;
 }
 
 .shop_button {
@@ -56,4 +53,25 @@ border-radius: 2px;
 
 .home_content {
   padding-top: 45px;
+}
+
+
+
+@media only screen and (max-width:768px) {
+  .home_content h2{
+    font-size: 2.0rem;
+    
+  }
+  .shop_button {
+    top: -60px;
+    left: 25px;
+  }
+
+  .home_img {
+    position: relative;
+    transform: rotate(12.5deg);
+    width: 90%;
+    left: 50px;
+  }
+
 }

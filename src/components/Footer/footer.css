@@ -1,0 +1,17 @@
+
+
+.footer{
+    padding-top: 60px;
+    padding-bottom: 30px;
+    background: #eee;
+}
+
+.footer_text{
+    line-height: 30px;
+    color:rgba(0, 0, 0, 0.678)
+    
+}
+
+.footer_quick-links ul li {
+    background: transparent !important;
+}

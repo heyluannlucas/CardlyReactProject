@@ -1,13 +1,13 @@
 const serviceData = [
   {
     icon: "ri-truck-line",
-    title: "Free Shipping",
+    title: "Immediate shipping",
     subtitle: "Lorem ipsum dolor sit amet.",
     bg: "#fdefe6",
   },
   {
-    icon: "ri-refresh-line",
-    title: "Easy Returns",
+    icon: "ri-filter-line",
+    title: "Categories",
     subtitle: "Lorem ipsum dolor sit amet.",
     bg: "#ceebe9",
   },
@@ -18,8 +18,8 @@ const serviceData = [
     bg: "#e2f2b2",
   },
   {
-    icon: "ri-exchange-dollar-line",
-    title: " Back Guarantee",
+    icon: "ri-hand-heart-line",
+    title: " Support",
     subtitle: "Lorem ipsum dolor sit amet.",
     bg: "#d6e5fb",
   },
