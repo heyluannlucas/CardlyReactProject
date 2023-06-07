@@ -49,7 +49,7 @@ const Home = () => {
         </Container>
       
       </section>
-      <Services/>
+      {/* <Services/> */}
       <section className='trending_products'>
         <Container>
           <Row>

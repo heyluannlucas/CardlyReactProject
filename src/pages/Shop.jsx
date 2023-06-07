@@ -72,7 +72,7 @@ const Shop = () => {
               </div>
               </Col>
           
-            <Col log='3' md='3' >
+            <Col log='3' md='3'>
             <div className="filter_widget">
                 <select>
                   <option>Sort By</option>
@@ -82,7 +82,7 @@ const Shop = () => {
                 </select>
               </div>
             </Col>
-            <Col lg='6' md='6'>
+            <Col lg='6' md='15'>
               <div className="search_box">
                 <input type = 'text' placeholder='Search...' 
                 onChange = {handleSearch}/>

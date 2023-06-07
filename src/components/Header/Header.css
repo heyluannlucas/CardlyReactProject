@@ -121,8 +121,8 @@
         position: absolute;
         top: 0;
         right: 0px;
-        height: 100%;
-        width: 80px;
+        height: 40%;
+        width: 70px;
         background: #ddd;
         z-index: 99999;
         flex-direction: column;
