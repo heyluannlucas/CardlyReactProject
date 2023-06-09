@@ -67,7 +67,7 @@ const Shop = () => {
                   <option value='teste'>Test</option>
                   <option value='games'>Games</option>
                   <option value='streaming'>Streaming</option>
-                  <option value='app'>Apps</option>
+                  <option value='apps'>Apps</option>
                 </select>
               </div>
               </Col>

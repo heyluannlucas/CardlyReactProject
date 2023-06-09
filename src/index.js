@@ -13,7 +13,7 @@ import 'react-toastify/dist/ReactToastify.css'
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <BrowserRouter/> 
+  <BrowserRouter>
     <Provider store={store}>
     <ToastContainer
       position="top-right"
@@ -24,5 +24,6 @@ root.render(
     />
       <App />
      </Provider> 
+    </BrowserRouter>
   </React.StrictMode>
 );

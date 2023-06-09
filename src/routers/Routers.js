@@ -10,7 +10,6 @@ import Login from '../pages/Login';
 
 const Routers = () => {
   return (
-    <Router>
       <Routes>
       <Route path="/" element={<Navigate to="home" />} />
         <Route path="home" element={<Home />} />
@@ -21,7 +20,6 @@ const Routers = () => {
         <Route path="signup" element={<Signup />} />
         <Route path="login" element={<Login />} />
       </Routes>
-    </Router>
   );
 };
 

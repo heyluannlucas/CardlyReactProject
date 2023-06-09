@@ -5,6 +5,9 @@ import userIcon from '../../assets/images/666201.png';
 import { motion } from 'framer-motion';
 import { Container, Row } from 'reactstrap';
 import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+
+
 
 const nav_links = [
   { path: 'home', display: 'Home' },
@@ -27,6 +30,13 @@ const Header = () => {
       }
     });
   };
+
+  const navigate = useNavigate();
+
+  const navigateToCart = () => {
+    navigate('/cart');
+  };
+
 
   useEffect(() => {
     stickyHeaderFun();
@@ -69,12 +79,13 @@ const Header = () => {
                   <i className="ri-heart-line"></i>
                   <span className="badge">1</span>
                 </span>
-                <span className="cart_icon">
-                  <a href="/cart"> 
+                <span className="cart_icon" onClick={navigateToCart}>
+                  <a href="/cart">
                     <span className="badge">{totalQuantity}</span>
                     <i className="ri-shopping-cart-2-line"></i>
                   </a>
                 </span>
+
 
                 <span>
                   <motion.img whileTap={{ scale: 1.1 }} src={userIcon} alt="" />
