@@ -6,10 +6,11 @@ import { motion } from 'framer-motion';
 import { Container, Row } from 'reactstrap';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import useAuth from '../../custom-hooks/useAuth'
+import useAuth from '../../custom-hooks/useAuth';
 import { Link } from 'react-router-dom';
-
-
+import { signOut } from 'firebase/auth';
+import { auth } from '../../firebase.config';
+import { toast } from 'react-toastify';
 
 const nav_links = [
   { path: 'home', display: 'Home' },
@@ -20,8 +21,7 @@ const nav_links = [
 const Header = () => {
   const headerRef = useRef(null);
   const totalQuantity = useSelector((state) => state.cart.totalQuantity);
-  const profileActionRef = useRef(null)
-
+  const profileActionRef = useRef(null);
   const menuRef = useRef(null);
   const navigate = useNavigate();
   const { currentUser } = useAuth();
@@ -40,14 +40,31 @@ const Header = () => {
     navigate('/cart');
   };
 
-  const toggleProfileActions = ()=> profileActionRef.current.classList.toggle('show_profileActions')
+  const toggleProfileActions = () => {
+    const profileActions = profileActionRef.current;
+    profileActions.style.display = profileActions.style.display === 'block' ? 'none' : 'block';
+  };
 
+  const logout = () => {
+    signOut(auth)
+      .then(() => {
+        toast.success('Logged Out');
+        navigate('/home');
+      })
+      .catch((err) => {
+        toast.error(err.message);
+      });
+  };
 
   useEffect(() => {
     stickyHeaderFun();
 
     return () => window.removeEventListener('scroll', stickyHeaderFun);
   });
+
+  const goHome = () => {
+    navigate('/home')
+  }
 
   const menuToggle = () => menuRef.current.classList.toggle('active_menu');
 
@@ -57,7 +74,7 @@ const Header = () => {
         <Row>
           <div>
             <div className="nav_wrapper">
-              <div className="logo">
+              <div className="logo" onClick={goHome}>
                 <img src={logo} alt="logo" />
                 <div>
                   <h1>Cardly.com</h1>
@@ -91,32 +108,28 @@ const Header = () => {
                   </a>
                 </span>
 
-
-                <div className='profile'>
-                  <motion.img 
-                    whileTap={{ scale: 1.1 }} 
-                    src={currentUser ?
-                    currentUser.photoURL : userIcon}
+                <div className="profile">
+                  <motion.img
+                    whileTap={{ scale: 1.1 }}
+                    src={currentUser ? currentUser.photoURL : userIcon}
                     alt=""
                     onClick={toggleProfileActions}
                   />
 
-                  <div className='profile_actions'
+                  <div
+                    className="profile_actions"
                     ref={profileActionRef}
                     onClick={toggleProfileActions}
                   >
-                    {
-                      currentUser ? (
-                      <span>Logout</span> )
-                      : ( 
-                      <div>
-                        <Link to='/signup'>Signup</Link>
-                        <Link to='/login'>Login</Link>
+                    {currentUser ? (
+                      <span onClick={logout}>Logout</span>
+                    ) : (
+                      <div className="d-flex align-items-center justify-content-center flex-column">
+                        <Link to="/signup">Signup</Link>
+                        <Link to="/login">Login</Link>
                       </div>
                     )}
-
                   </div>
-
                 </div>
                 <div className="mobile_menu">
                   <span onClick={menuToggle}>

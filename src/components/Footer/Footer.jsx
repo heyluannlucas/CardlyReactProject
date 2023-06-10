@@ -4,6 +4,7 @@ import React from 'react';
 
 import { Container, Row, Col, ListGroup, ListGroupItem } from 'reactstrap';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const nav_links = [
   { path: 'home', display: 'Home' },
@@ -11,7 +12,11 @@ const nav_links = [
   { path: 'cart', display: 'Cart' },
 ];
 
+
 const Footer = () => {
+
+  const navigate = useNavigate();
+
   const year = new Date().getFullYear();
   return (
     <footer className="footer">
@@ -35,7 +40,7 @@ const Footer = () => {
             <div className="footer_quick-links">
               <h4 className="quick_links-title">Categories</h4>
               <ListGroup className='mb-3'>
-                <ListGroupItem className='ps-0 border-0'><p>um</p></ListGroupItem>
+                <ListGroupItem className='ps-0 border-0'><p></p></ListGroupItem>
                 <ListGroupItem className='ps-0 border-0'><p>dois</p></ListGroupItem>
                 <ListGroupItem className='ps-0 border-0'><p>tres</p></ListGroupItem>
                 <ListGroupItem className='ps-0 border-0'><p>quatro</p></ListGroupItem>

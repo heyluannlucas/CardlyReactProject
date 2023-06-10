@@ -9,6 +9,7 @@ import ProductsList from '../components/UI/ProductsList';
 const Shop = () => {
   const [productsData, setProductsData] = useState(products);
   const [sortOption, setSortOption] = useState('');
+  const [currentCategory, setCurrentCategory] = useState('');
 
   const handleFilter = (e) => {
     const filterValue = e.target.value;
@@ -16,17 +17,22 @@ const Shop = () => {
     if (filterValue === 'teste') {
       const filteredProducts = products.filter((item) => item.category === 'teste');
       setProductsData(filteredProducts);
+      setCurrentCategory('Test');
     } else if (filterValue === 'games') {
       const filteredProducts = products.filter((item) => item.category === 'games');
       setProductsData(filteredProducts);
+      setCurrentCategory('Games');
     } else if (filterValue === 'streaming') {
       const filteredProducts = products.filter((item) => item.category === 'streaming');
       setProductsData(filteredProducts);
+      setCurrentCategory('Streaming');
     } else if (filterValue === 'apps') {
       const filteredProducts = products.filter((item) => item.category === 'apps');
       setProductsData(filteredProducts);
+      setCurrentCategory('Apps');
     } else {
       setProductsData(products); // Caso a opção selecionada seja 'Filter By Category', mostra todos os produtos novamente
+      setCurrentCategory('');
     }
   };
 
@@ -58,7 +64,7 @@ const Shop = () => {
 
   return (
     <Helmet title='Shop'>
-      <CommonSection title={'Search for categories...'} />
+      <CommonSection title={`Search for categories: ${currentCategory}`} />
 
       <section>
         <Container>

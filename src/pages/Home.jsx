@@ -49,7 +49,7 @@ const Home = () => {
         </Container>
 
       </section>
-      {/* <Services/> */}
+     
       <section className='trending_products'>
         <Container>
           <Row>
@@ -59,7 +59,7 @@ const Home = () => {
             <ProductsList data={data} />
           </Row>
         </Container>
-
+        <Services/>
       </section>
     </Helmet>
   );
