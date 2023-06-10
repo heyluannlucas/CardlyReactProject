@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 
 import Helmet from '../components/Helmet/Helmet';
 import { Row, Col, Container } from 'reactstrap';
@@ -17,16 +17,16 @@ import ProductsList from '../components/UI/ProductsList';
 
 const Home = () => {
 
- 
-    const [data, setData] = useState([]);
-  
-    useEffect(() => {
-      const filteredProducts = products.filter(
-        (item) => item.category === 'teste'
-        );
 
-      setData(filteredProducts)
-    }, []);
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    const filteredProducts = products.filter(
+      (item) => item.category === 'teste'
+    );
+
+    setData(filteredProducts)
+  }, []);
 
   return (
     <Helmet title={'Home'}>
@@ -35,28 +35,28 @@ const Home = () => {
           <Row>
             <Col lg='6' md='6'>
               <div className="home_content">
-                <h2 className='slogan'>The power of gifting <br />  
+                <h2 className='slogan'>The power of gifting <br />
                   emotions in the form of   <br />
                   giftcards</h2>
-                <motion.button whileTap={{scale:1.2}} 
-                className='shop_button'><Link to='/shop'>SHOP</Link></motion.button>
+                <motion.button whileTap={{ scale: 1.2 }}
+                  className='shop_button'><Link to='/shop'>SHOP</Link></motion.button>
               </div>
             </Col>
-            <Col lg='6' md='6'>     
-                <img className='home_img' src={homeImage} alt='' />
+            <Col lg='6' md='6'>
+              <img className='home_img' src={homeImage} alt='' />
             </Col>
           </Row>
         </Container>
-      
+
       </section>
       {/* <Services/> */}
       <section className='trending_products'>
         <Container>
           <Row>
-            <Col  lg='12' className='text-center'>
+            <Col lg='12' className='text-center'>
               <h2 className='section_title'> </h2>
             </Col>
-            <ProductsList data={data}/>
+            <ProductsList data={data} />
           </Row>
         </Container>
 

@@ -1,5 +1,5 @@
 import './footer.css';
-import logo from '../../assets/images/icon.svg';
+
 import React from 'react';
 
 import { Container, Row, Col, ListGroup, ListGroupItem } from 'reactstrap';

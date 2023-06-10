@@ -11,6 +11,7 @@ import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 
 
+
 const Cart = () => {
 
   const cartItems = useSelector((state) => state.cart.cartItems);
@@ -42,7 +43,7 @@ const Cart = () => {
                     <tbody>
                       {
                         cartItems.map((item, index) => (
-                          <Tr item={item} key={index}/>
+                          <Tr item={item} key={index} />
                         ))}
                     </tbody>
 
@@ -53,16 +54,16 @@ const Cart = () => {
             <Col lg="3">
               <div>
                 <h6 className='d-flex align-items-center justify-content-between'>Subtotal
-                <span className='fs-4 fw-bold'>${totalAmount}</span>
+                  <span className='fs-4 fw-bold'>${totalAmount}</span>
                 </h6>
-                
+
               </div>
               <p>total on chekout</p>
               <div>
                 <button className='add_button w-100'><Link to='/shop'>Continue Shopping</Link></button>
 
                 <button className='add_button w-100 mt-3'><Link to='/checkout'>Checkout</Link></button>
-                
+
               </div>
             </Col>
           </Row>
@@ -79,28 +80,28 @@ const Tr = ({ item }) => {
     dispatch(cartActions.deleteItem(item.id))
   }
 
-  return ( 
-  <tr>
-    <td>
-      <img src={item.image} alt='' />
-    </td>
-    <td>
-      {item.productName}
-    </td>
-    <td>
-      {item.price}
-    </td>
-    <td>
-      {item.quantity}px
-    </td>
-    <td>
-      <motion.i 
-      whileTap={{ scale: 1.2 }} 
-      onClick={deleteProduct} 
-      class='ri-delete-bin-line'
-      ></motion.i>
-    </td>
-  </tr>
+  return (
+    <tr>
+      <td>
+        <img src={item.image} alt='' />
+      </td>
+      <td>
+        {item.productName}
+      </td>
+      <td>
+        {item.price}
+      </td>
+      <td>
+        {item.quantity}px
+      </td>
+      <td>
+        <motion.i
+          whileTap={{ scale: 1.2 }}
+          onClick={deleteProduct}
+          class='ri-delete-bin-line'
+        ></motion.i>
+      </td>
+    </tr>
   );
 };
 

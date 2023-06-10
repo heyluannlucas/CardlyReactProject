@@ -1,19 +1,17 @@
 import React, { useState } from 'react';
-import Helmet from '../components/Helmet/Helmet';
-import { Container, Row, Col, Form, FormGroup } from 'reactstrap';
-import { Link } from 'react-router-dom';
-import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
-import { auth } from '../firebase.config';
+import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
 import { storage } from '../firebase.config';
-import { ref, uploadBytesResumable, getDowloadURL } from 'firebase/storage';
-import { setDoc } from 'firebase/firestore';
-
-import '../styles/login.css';
-import { upload } from '@testing-library/user-event/dist/upload';
+import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage';
+import { setDoc, doc } from 'firebase/firestore';
 import { toast } from 'react-toastify';
-import { db } from '../firebase.config'
+import { db } from '../firebase.config';
+import { auth } from '../firebase.config';
+
+import { Container, Row, Col, Form, FormGroup } from 'reactstrap';
+import { Link, useNavigate } from 'react-router-dom';
 
 import '../styles/login.css';
+
 
 const Signup = () => {
   const [username, setUsername] = useState('');
@@ -21,6 +19,8 @@ const Signup = () => {
   const [password, setPassword] = useState('');
   const [file, setFile] = useState(null);
   const [loading, setLoading] = useState(false);
+
+  const navigate = useNavigate();
 
   const signup = async (e) => {
     e.preventDefault();
@@ -34,50 +34,43 @@ const Signup = () => {
       );
 
       const user = userCredential.user;
-      if (file) {
-        const storageRef = storage.ref(`images/${Date.now() + username}`);
-        const uploadTask = storageRef.put(file);
 
-        uploadTask.on(
-          'state_changed',
-          null,
-          (error) => {
-            toast.error(error.message);
-          },
-          () => {
-            uploadTask.snapshot.ref.getDownloadURL().then((downloadURL) => {
-              // Update user profile with downloadURL
-              updateProfile(user, {
+      const storageRef = ref(storage, `images/${Date.now() + username}`);
+      const uploadTask = uploadBytesResumable(storageRef, file);
+
+      uploadTask.on(
+        'state_changed',
+        () => { },
+        (error) => {
+          toast.error(error.message);
+          setLoading(false); // Update loading state to false in case of error
+        },
+        () => {
+          getDownloadURL(uploadTask.snapshot.ref)
+            .then(async (downloadURL) => {
+              await updateProfile(user, {
                 displayName: username,
                 photoURL: downloadURL,
-              })
-                .then(() => {
-                  console.log('User profile updated successfully.');
-                })
-                .catch((error) => {
-                  console.log('Error updating user profile:', error);
-                });
-            });
-          }
-        );
-      } else {
-        // Update user profile without photoURL 
-        updateProfile(user, {
-          displayName: username,
-        })
-          .then(() => {
-            console.log('User profile updated successfully');
-          })
-          .catch((error) => {
-            console.log('Error updating user profile:', error);
-          });
-      }
+              });
 
-      console.log(user);
+              await setDoc(doc(db, 'users', user.uid), {
+                uid: user.uid,
+                displayName: username,
+                email,
+                photoURL: downloadURL,
+              });
+            })
+        }
+      );
+
+      navigate('/login')
+      toast.success(`You've been registered :)`);
+      setLoading(false);
+
+
     } catch (error) {
       toast.error('Signup error:', error);
-    } finally {
-      setLoading(false);
+
     }
   };
 
@@ -128,8 +121,7 @@ const Signup = () => {
                 {loading ? 'Creating Account...' : 'Create an Account'}
               </button>
               <p className='mt-4'>
-                Already have an account?{' '}
-                <Link to='/login'>Login</Link>
+                Already have an account? <Link to='/login'>Login</Link>
               </p>
             </Form>
           </Col>
