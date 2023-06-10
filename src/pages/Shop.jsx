@@ -14,10 +14,10 @@ const Shop = () => {
   const handleFilter = (e) => {
     const filterValue = e.target.value;
 
-    if (filterValue === 'teste') {
-      const filteredProducts = products.filter((item) => item.category === 'teste');
+    if (filterValue === 'store') {
+      const filteredProducts = products.filter((item) => item.category === 'store');
       setProductsData(filteredProducts);
-      setCurrentCategory('Test');
+      setCurrentCategory('Store');
     } else if (filterValue === 'games') {
       const filteredProducts = products.filter((item) => item.category === 'games');
       setProductsData(filteredProducts);
@@ -32,7 +32,7 @@ const Shop = () => {
       setCurrentCategory('Apps');
     } else {
       setProductsData(products); // Caso a opção selecionada seja 'Filter By Category', mostra todos os produtos novamente
-      setCurrentCategory('');
+      setCurrentCategory('All');
     }
   };
 
@@ -73,7 +73,7 @@ const Shop = () => {
               <div className='filter_widget'>
                 <select onClick={handleFilter}>
                   <option>Filter By Category</option>
-                  <option value='teste'>Test</option>
+                  <option value='store'>Store</option>
                   <option value='games'>Games</option>
                   <option value='streaming'>Streaming</option>
                   <option value='apps'>Apps</option>

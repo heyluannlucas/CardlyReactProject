@@ -1,17 +1,26 @@
 
 
 .footer{
-    padding-top: 60px;
+    padding-top: 15px;
     padding-bottom: 30px;
-    background: #eee;
+    background: var(--card-bg-01);
 }
 
 .footer_text{
-    line-height: 30px;
-    color:rgba(0, 0, 0, 0.678)
+    line-height: 15px;
+    color:rgba(0, 0, 0, 0.678);
+
     
 }
 
 .footer_quick-links ul li {
     background: transparent !important;
+    cursor: pointer;
+}
+
+.cardly_footer{
+    line-height: 15px;
+    color:rgba(98, 30, 153, 0.678);
+    padding-top: 50px;
+    
 }
