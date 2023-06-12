@@ -9,7 +9,7 @@ import { useSelector } from 'react-redux'
 
 const Checkout = () => {
 
-  const totalQty = useSelector(state => state.cart.totalQty);
+  const totalQuantity  = useSelector(state => state.cart.totalQuantity );
   const totalAmount = useSelector(state => state.cart.totalAmount);
 
   return (<Helmet title='Checkout'>
@@ -18,7 +18,7 @@ const Checkout = () => {
       <Container>
         <Row>
           <Col>
-            <h6 className='mb-4 fw-bold'>Billing information</h6>
+            <h6 className='mb-4 fw-bold '>Billing information</h6>
             <Form className='biling_form'>
               <FormGroup>
                 <input type='text' placeholder='Enter you name' />
@@ -46,7 +46,7 @@ const Checkout = () => {
           <Col lg='4'>
             <div
               className="checkout_cart">
-              <h6>Total Qty: <span>{totalQty} items</span></h6>
+              <h6>Total Qty: <span>{totalQuantity } items</span></h6>
               <h6>Subtotal: <span>${totalAmount}</span></h6>
               <h6 className='mt-3'>Free Shipping:</h6>
               <p>You're going to receive de redem code on your email</p>

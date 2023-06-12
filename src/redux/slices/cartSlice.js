@@ -22,7 +22,7 @@ const cartSlice = createSlice({
         state.cartItems.push({
           id: newItem.id,
           productName: newItem.productName,
-          image: newItem.imageUrl,
+          imgUrl: newItem.imgUrl,
           price: newItem.price,
           quantity: 1,
           totalPrice: newItem.price,
@@ -41,20 +41,33 @@ const cartSlice = createSlice({
       console.log(state.cartItems);
       console.log(newItem);
     },
-  },
 
-  deleteItem: (state, action) => {
-    const id = action.payload;
-    const existingItem = state.cartItems.find((item) => item.id === id);
-
-    if (existingItem) {
-      state.cartItems = state.cartItems.filter((item) => item.id !== id);
-      state.totalQuantity = state.totalQuantity - existingItem.quantity;
-    }
-
-    state.totalAmount = state.cartItems.reduce(
-      (total, item) => total + Number(item.price) * Number(item.quantity),0
-    );
+    deleteItem: (state, action) => {
+      const id = action.payload;
+      const existingItemIndex = state.cartItems.findIndex(
+        (item) => item.id === id
+      );
+    
+      if (existingItemIndex !== -1) {
+        const existingItem = state.cartItems[existingItemIndex];
+    
+        if (existingItem.quantity > 1) {
+          // Se a quantidade do item for maior que 1, reduza a quantidade em 1
+          existingItem.quantity--;
+          existingItem.totalPrice = Number(existingItem.totalPrice) - Number(existingItem.price);
+        } else {
+          // Caso contrário, remova o item do carrinho
+          state.cartItems.splice(existingItemIndex, 1);
+        }
+    
+        state.totalQuantity--;
+      }
+    
+      state.totalAmount = state.cartItems.reduce(
+        (total, item) => total + Number(item.price) * Number(item.quantity),
+        0
+      );
+    },
   },
 });
 

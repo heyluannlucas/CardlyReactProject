@@ -1,6 +1,6 @@
 
 
-import React, { useState, useRef, useEffect } from 'react'
+import React, { useState, useRef } from 'react'
 import { Container, Row, Col } from 'reactstrap';
 import { useParams } from 'react-router-dom';
 import Helmet from '../components/Helmet/Helmet';
@@ -12,6 +12,7 @@ import ProductsList from '../components/UI/ProductsList';
 import { useDispatch } from 'react-redux';
 import { cartActions } from '../redux/slices/cartSlice';
 import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
 
 const ProductDetails = () => {
 
@@ -45,15 +46,18 @@ const ProductDetails = () => {
     toast.success('subimited, thank you!')
   };
 
+  const navigate = useNavigate()
+
   const addToCart = () => {
     dispatch(cartActions.addItem({
       id,
-      image: imgUrl,
+      imgUrl: imgUrl,
       productName,
       price,
     })
     );
     toast.success('Product added')
+    navigate('/cart')
   };
 
 
@@ -196,4 +200,4 @@ const ProductDetails = () => {
   );
 };
 
-export default ProductDetails
+export default ProductDetails;

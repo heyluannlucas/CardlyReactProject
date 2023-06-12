@@ -16,17 +16,19 @@ const scrollToTop = () => {
   });
 };
 
+
 const ProductCard = ({item}) => {
 
+
   const { id} = item;
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   const addToCart = () => {
     dispatch(cartActions.addItem({
       id: item.id,
       productName: item.productName,
       price: item.price,
-      image: item.imgUrl,
+      imgUrl: item.imgUrl,
       })
     );
 

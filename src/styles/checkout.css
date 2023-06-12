@@ -1,7 +1,9 @@
 .biling_form
 .form_group input {
-border: 1px solid var(--card-bg-02) ;
+border: 7px solid var(--card-bg-02) ;
+
 }
+
 
 .checkout_cart{
     border-radius: 5px;

@@ -8,8 +8,10 @@ const Footer = () => {
   const year = new Date().getFullYear();
 
   const handleLinkClick = (path) => {
-    navigate(`/${path}`);
+    window.scrollTo(0, 0); 
+    navigate(`/${path}`); 
   };
+
 
   return (
     <footer className="footer">
@@ -32,7 +34,7 @@ const Footer = () => {
             <Row>
               <Col lg='4'>
                 <div className="footer_quick-links">
-                  <h4 className="quick_links-title">Links</h4>
+                  <h4 className="quick_links-title mb-3">Links</h4>
                   <ListGroup className='mb-3'>
                     <ListGroupItem className='ps-0 border-0' onClick={() => handleLinkClick('home')}>
                       <p>Home</p>
@@ -52,7 +54,7 @@ const Footer = () => {
 
               <Col lg='4'>
                 <div className='footer_quick-links'>
-                  <h4 className='quick_links-title'>Contact</h4>
+                  <h4 className='quick_links-title mb-3'>Contact</h4>
                   <ListGroup>
                     <ListGroupItem className='ps-0 border-0'>
                       <span><i className='ri-map-pin-line'></i></span>
@@ -72,7 +74,7 @@ const Footer = () => {
 
               <Col lg='4'>
                 <div className='footer_quick-links'>
-                  <h4 className='quick_links-title'>Social Media</h4>
+                  <h4 className='quick_links-title mb-3'>Social Media</h4>
                   <ListGroup>
                     <ListGroupItem className='ps-0 border-0'>
                       <span><i className='ri-facebook-fill'></i></span>

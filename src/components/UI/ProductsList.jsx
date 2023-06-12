@@ -15,4 +15,4 @@ const ProductsList = ({ data }) => {
   );
 };
 
-export default ProductsList
+export default ProductsList;

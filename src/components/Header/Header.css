@@ -109,10 +109,14 @@
     line-height: 30px;
     display: none;
     cursor: pointer;
+    
+    
   }
   
   .show_profileActions {
     display: block;
+    
+    
   }
   
 
@@ -155,17 +159,21 @@
         position: absolute;
     
         right: 38px;
-        height: 25%;
-        width: 14%;
+        height: 20%;
+        width: 25%;
+       
         background: #ddd;
         flex-direction: column;
         margin-top: 50px;
         border-radius: 10%;
+        align-items: center;
+        justify-content: center;
+       
 
         }
 
         .menu li {
-            display: flex;
+            margin-right: 23px;      
         }
         
         .active_menu {
@@ -207,5 +215,27 @@
             height: 60px;
             line-height: 60px;
         }
+
+        
+        .nav_icons .profile .profile_actions {
+            position: absolute;
+            top: 95%;
+            left:-500%;
+            width: 150px;
+            z-index: 10;
+            display: flex;
+            padding: 15px;
+            align-items: center;
+            flex-direction: column;
+            background: var(--card-bg-01);
+            border-radius: 18%;
+            line-height: 30px;
+            display: none;
+            cursor: pointer;
+            margin-top: 10px;
+            
+            
+        }
+  
 
     }

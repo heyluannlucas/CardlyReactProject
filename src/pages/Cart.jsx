@@ -7,10 +7,7 @@ import { Container, Row, Col } from 'reactstrap'
 import { cartActions } from '../redux/slices/cartSlice'
 import { useSelector, useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
-
 import { motion } from 'framer-motion'
-
-
 
 const Cart = () => {
 
@@ -83,7 +80,7 @@ const Tr = ({ item }) => {
   return (
     <tr>
       <td>
-        <img src={item.image} alt='' />
+        <img src={item.imgUrl} alt='' />
       </td>
       <td>
         {item.productName}

@@ -50,6 +50,7 @@ const Header = () => {
       .then(() => {
         toast.success('Logged Out');
         navigate('/home');
+        stickyHeaderFun();
       })
       .catch((err) => {
         toast.error(err.message);
@@ -63,8 +64,8 @@ const Header = () => {
   });
 
   const goHome = () => {
-    navigate('/home')
-  }
+    navigate('/home');
+  };
 
   const menuToggle = () => menuRef.current.classList.toggle('active_menu');
 
@@ -85,27 +86,21 @@ const Header = () => {
                 <ul className="menu">
                   {nav_links.map((item, index) => (
                     <li className="nav_item" key={index}>
-                      <a
-                        href={`/${item.path}`}
+                      <Link
+                        to={`/${item.path}`}
                         className={window.location.pathname === `/${item.path}` ? 'nav_active' : ''}
                       >
                         {item.display}
-                      </a>
+                      </Link>
                     </li>
                   ))}
                 </ul>
               </div>
 
               <div className="nav_icons">
-                <span className="fav_icon">
-                  <i className="ri-heart-line"></i>
-                  <span className="badge">1</span>
-                </span>
                 <span className="cart_icon" onClick={navigateToCart}>
-                  <a href="/cart">
-                    <span className="badge">{totalQuantity}</span>
-                    <i className="ri-shopping-cart-2-line"></i>
-                  </a>
+                  <span className="badge">{totalQuantity}</span>
+                  <i className="ri-shopping-cart-2-line"></i>
                 </span>
 
                 <div className="profile">
@@ -116,11 +111,7 @@ const Header = () => {
                     onClick={toggleProfileActions}
                   />
 
-                  <div
-                    className="profile_actions"
-                    ref={profileActionRef}
-                    onClick={toggleProfileActions}
-                  >
+                  <div className="profile_actions" ref={profileActionRef} onClick={toggleProfileActions}>
                     {currentUser ? (
                       <span onClick={logout}>Logout</span>
                     ) : (
