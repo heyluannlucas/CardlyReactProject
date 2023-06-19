@@ -20,7 +20,6 @@ const Login = () => {
 
     try {
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
-      // Login successful, you can redirect the user to another page here
       const user = userCredential.user
 
       setLoading(false)

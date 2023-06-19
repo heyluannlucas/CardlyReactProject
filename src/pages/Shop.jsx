@@ -31,7 +31,7 @@ const Shop = () => {
       setProductsData(filteredProducts);
       setCurrentCategory('Apps');
     } else {
-      setProductsData(products); // Caso a opção selecionada seja 'Filter By Category', mostra todos os produtos novamente
+      setProductsData(products); 
       setCurrentCategory('All');
     }
   };
@@ -56,7 +56,7 @@ const Shop = () => {
       const sortedProducts = [...productsData].sort((a, b) => b.price - a.price);
       setProductsData(sortedProducts);
     } else {
-      setProductsData(products); // Caso a opção selecionada seja 'Sort By', mostra todos os produtos ordenados por padrão
+      setProductsData(products); 
     }
 
     setSortOption(sortValue);

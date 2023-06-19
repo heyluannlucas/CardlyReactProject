@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import { Row, Col, Container } from 'reactstrap';
 import Helmet from '../components/Helmet/Helmet';
 import homeImage from '../assets/images/giftcards.png';
-import Services from '../services/Services';
 import '../styles/home.css';
 import products from '../assets/data/products';
 import ProductsList from '../components/UI/ProductsList';
@@ -67,7 +66,7 @@ const Home = () => {
             <ProductsList data={data} />
           </Row>
         </Container>
-        <Services />
+      
       </section>
     </Helmet>
   );

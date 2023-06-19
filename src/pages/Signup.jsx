@@ -43,7 +43,7 @@ const Signup = () => {
         () => { },
         (error) => {
           toast.error(error.message);
-          setLoading(false); // Update loading state to false in case of error
+          setLoading(false); 
         },
         () => {
           getDownloadURL(uploadTask.snapshot.ref)

@@ -1,18 +1,7 @@
 
 
 .home_section {
-   
-
 background: linear-gradient(293.57deg, #E340B6 38.6%, #EA8A8A 82.32%);
-border-radius: 2px;
-
-
-}
-
-
-.home_section{
-color: var(--primary-color) ;
-border-radius: 2px;
 }
 
 .slogan {
@@ -20,12 +9,8 @@ border-radius: 2px;
   font-size: 2.5rem;
   margin: 100px 20px;
 }
-
-
-
 .home_img {
-
-  transform: rotate(-15deg);
+ transform: rotate(-15deg);
   width: 100%;
 }
 
@@ -39,7 +24,7 @@ border-radius: 2px;
   cursor: pointer;
   font-size: 1rem;
   position: relative;
-  top: -60px;
+  bottom: 60px;
   left: 120px;
 }
 
@@ -55,20 +40,13 @@ border-radius: 2px;
   padding-top: 45px;
 }
 
-.trending_products{
-
-  
-}
-
-
-
 @media only screen and (max-width:768px) {
   .home_content h2{
-    font-size: 2.0rem;
+    font-size: 2rem;
     
   }
   .shop_button {
-    top: -60px;
+    bottom: 60px;
     left: 25px;
   }
 
